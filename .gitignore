@@ -25,3 +25,4 @@ replay_pid*
 
 # Egentestprogrammet
 Testprogram.java
+*.md
