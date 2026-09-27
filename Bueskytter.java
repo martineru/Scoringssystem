@@ -33,9 +33,9 @@ class Bueskytter extends Person implements Konkurranseskytter {
         if (this.alderklasse() >= 16) {
             klasse += " senior";
         } else if (this.alderklasse() >= 13) {
-            klasse = " Junior";
+            klasse = "Junior";
         } else {
-            klasse = " Minijunior";
+            klasse = "Minijunior";
         }
         return klasse;
     }
