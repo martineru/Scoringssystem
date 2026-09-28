@@ -40,9 +40,9 @@ class Bueskytter extends Person implements Konkurranseskytter {
         // Antar alle deltar i klassen de strengt tatt tilhører
         String klasse;
         klasse = this.kjonn + "r";
-        if (this.alderklasse() >= 16) {
+        if (this.aldersklasse() >= 16) {
             klasse += " senior";
-        } else if (this.alderklasse() >= 13) {
+        } else if (this.aldersklasse() >= 13) {
             klasse = "Junior";
         } else {
             klasse = "Minijunior";

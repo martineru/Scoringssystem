@@ -21,7 +21,7 @@ public abstract class Person {
      * @return Hvor gammel personen blir i år, uavhengig av når på året personen er
      *         født.
      */
-    public int alderklasse() {
+    public int aldersklasse() {
         LocalDate iDag = LocalDate.now();
         int alder = iDag.getYear() - this.fodselsdato.getYear();
         return alder;
