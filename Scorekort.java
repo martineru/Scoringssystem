@@ -40,11 +40,14 @@ class Scorekort {
         return s;
     }
 
-    public void skrivScore() {
+    public void skrivScore(Boolean tommeKort) {
         String skytternavn = skytter.hentNavn();
         try {
             // Navngivning av fil tar ikke hensyn til om noen har samme navn.
-            String filnavn = skytternavn + ".md";
+            String filnavn = "Scorekort/" + skytternavn + ".md";
+            if (tommeKort) {
+                filnavn = "TommeScorekort/" + skytternavn + ".md";
+            }
             filnavn = filnavn.replaceAll("\\s", "");
             filnavn = filnavn.replaceAll("å", "aa");
             filnavn = filnavn.replaceAll("æ", "ae");
@@ -60,10 +63,18 @@ class Scorekort {
             pw.println("---");
             pw.println("|Gren|Poengsum|");
             pw.println("|----------|----------|");
-            for (int i = 0; i < score.size(); i++) {
-                pw.println("|" + score.keySet().toArray()[i] + "|" + score.values().toArray()[i] + "|");
+            if (tommeKort) {
+                for (int i = 0; i < score.size(); i++) {
+                    pw.println("|" + score.keySet().toArray()[i] + "|  |");
+                    pw.println("| **Total**|  |");
+
+                }
+            } else {
+                for (int i = 0; i < score.size(); i++) {
+                    pw.println("|" + score.keySet().toArray()[i] + "|" + score.values().toArray()[i] + "|");
+                    pw.println("| **Total**|**" + totalScore() + "**|");
+                }
             }
-            pw.println("| **Total**|**" + totalScore() + "**|");
 
             pw.close();
             System.out.println("Scorekort skrevet for " + skytternavn);

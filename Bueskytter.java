@@ -6,6 +6,7 @@ class Bueskytter extends Person implements Konkurranseskytter {
     private int skytternummer;
     private HashMap<String, Integer> resultater; // Resultater lagres i en HashMap, med skytegren som nøkkel og sum
                                                  // oppnådd som verdi
+    private Scorekort scorekort;
 
     {
         ++skytternummerTeller;
@@ -14,6 +15,7 @@ class Bueskytter extends Person implements Konkurranseskytter {
     public Bueskytter(String navn, LocalDate fodselsdato, String adresse, String kjonn) {
         super(navn, fodselsdato, adresse, kjonn);
         this.skytternummer = skytternummerTeller;
+        this.resultater = new HashMap<>();
     }
 
     @Override
@@ -24,6 +26,14 @@ class Bueskytter extends Person implements Konkurranseskytter {
     @Override
     public HashMap<String, Integer> hentResultater() {
         return this.resultater;
+    }
+
+    public void registrertScorekort(Scorekort sc) {
+        this.scorekort = sc;
+    }
+
+    public int hentTotalscore() {
+        return this.scorekort.totalScore();
     }
 
     public String klasse() {
