@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-class Demonstrasjon {
+class Hovedprogram {
     public static void main(String[] args) throws IOException {
         Data databehandler = new Data();
         // Brukt copilot til å generere en .txt-fil med tilfeldige skyttere med fiktive
