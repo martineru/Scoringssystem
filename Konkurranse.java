@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Konkurranse {
@@ -8,6 +9,7 @@ public class Konkurranse {
     ArrayList<Bueskytter> deltagere;
     Dommer hoveddommer;
     ArrayList<Dommer> meddommere;
+    ArrayList<String> grener;
     HashMap<Bueskytter, Integer> resultater;
     ArrayList<Scorekort> tommeScorekort;
     ArrayList<Scorekort> alleScorekortUtfylt;
@@ -40,26 +42,55 @@ public class Konkurranse {
         }
     }
 
+    public void registrerDeltaker(ArrayList<Bueskytter> deltagere) {
+        int j = deltagere.size() - 1;
+        while (j >= 0) {
+            if (deltagere.get(j) != null) {
+                this.deltagere.add(deltagere.get(j));
+            }
+            j--;
+        }
+    }
+
     /**
      * @param gren array med alle grener i konkurransen
      * @return returnerer ArrayList med tomme scorekort for alle deltagere
      *         registrert i konkurransen
      */
     public ArrayList<Scorekort> genererTommeScorekort(String[] gren) {
-        HashMap<String, Integer> grener = new HashMap<>();
-        for (int i = 0; i < gren.length; i++) {
-            grener.put(gren[i], 0);
+        grener = new ArrayList<>();
+        Collections.addAll(grener, gren);
+        int[] nullScore = new int[gren.length];
+
+        for (int i = 0; i < nullScore.length; i++) {
+            nullScore[i] = 0;
         }
         ArrayList<Scorekort> scorekort = new ArrayList<>();
         if (this.deltagere.size() < 1) {
             System.out.println("Det er ingen registrerte deltagere i konkurransen. Ingen scorekort er skrevet.");
         } else {
             for (int i = 0; i < this.deltagere.size(); i++) {
-                scorekort.add(new Scorekort(this.deltagere.get(i), this));
+                Scorekort nyttScorekort = new Scorekort(this.deltagere.get(i), this);
+                nyttScorekort.leggInnScore(gren, nullScore);
+                scorekort.add(nyttScorekort);
             }
             this.tommeScorekort = scorekort;
         }
         return scorekort;
+    }
+
+    public void skrivAlleScorekort(boolean tomme) {
+        if (tomme) {
+            for (int i = 0; i < tommeScorekort.size(); i++) {
+                tommeScorekort.get(i).skrivScore(true);
+                ;
+            }
+        } else {
+            for (int i = 0; i < alleScorekortUtfylt.size(); i++) {
+                alleScorekortUtfylt.get(i).skrivScore(false);
+                ;
+            }
+        }
     }
 
     public ArrayList<Bueskytter> hentDeltakere() {

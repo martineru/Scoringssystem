@@ -28,6 +28,12 @@ class Scorekort {
         }
     }
 
+    public void leggInnScore(String[] grener, int[] poengsummer) {
+        for (int i = 0; i < grener.length; i++) {
+            leggInnScore(grener[i], poengsummer[i]);
+        }
+    }
+
     public HashMap<String, Integer> hentScore() {
         return score;
     }
@@ -66,9 +72,9 @@ class Scorekort {
             if (tommeKort) {
                 for (int i = 0; i < score.size(); i++) {
                     pw.println("|" + score.keySet().toArray()[i] + "|  |");
-                    pw.println("| **Total**|  |");
 
                 }
+                pw.println("| **Total**|  |");
             } else {
                 for (int i = 0; i < score.size(); i++) {
                     pw.println("|" + score.keySet().toArray()[i] + "|" + score.values().toArray()[i] + "|");
