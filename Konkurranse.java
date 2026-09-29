@@ -18,6 +18,7 @@ public class Konkurranse {
         this.sted = sted;
         this.dato = dato;
         this.deltagere = new ArrayList<>();
+        this.alleScorekortUtfylt = new ArrayList<>();
     }
 
     /**

@@ -38,20 +38,22 @@ class Data {
         try (BufferedReader filleser = new BufferedReader(
                 new InputStreamReader(new FileInputStream(resultatfil), "UTF-8"))) {
             String linje = filleser.readLine();
-            String[] info = linje.split(":");
 
             // Ikke optimalisert kode
             while (linje != null) {
+                String[] info = linje.split(":");
                 for (int i = 0; i < konkurranse.deltagere.size(); i++) {
                     HashMap<String, Integer> resultater = new HashMap<>();
-                    resultater.put(grener.get(0), Integer.parseInt(info[1]));
-                    resultater.put(grener.get(1), Integer.parseInt(info[2]));
-                    resultater.put(grener.get(2), Integer.parseInt(info[3]));
+                    resultater.put(grener.get(0), Integer.parseInt(info[1].strip()));
+                    resultater.put(grener.get(1), Integer.parseInt(info[2].strip()));
+                    resultater.put(grener.get(2), Integer.parseInt(info[3].strip()));
 
                     if (info[0].trim().equals(konkurranse.deltagere.get(i).navn)) {
                         konkurranse.deltagere.get(i).registrerResultater(resultater);
+                        konkurranse.alleScorekortUtfylt.add(new Scorekort(konkurranse.deltagere.get(i), konkurranse));
                     }
                 }
+                linje = filleser.readLine();
 
             }
         } catch (IOException e) {

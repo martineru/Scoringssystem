@@ -38,10 +38,7 @@ class Hovedprogram {
         System.out.println("\nHvilke grener skal være i konkurransen? Skriv grenene, adskilt med komma. ");
         String grenerInput = tastatur.readLine();
         String[] grener = grenerInput.split(",");
-        for (int i = 0; i < grener.length; i++) {
-            System.out.println(grener[i]);
 
-        }
         System.out.println("\nVil du generere tomme scorekort? skriv 'Y'");
         String svar = tastatur.readLine();
         if (svar.equals("Y")) {
@@ -49,7 +46,18 @@ class Hovedprogram {
             konkurranse.skrivAlleScorekort(true);
         }
 
-        System.out.println("\nVil du registrere resultater fra fil? Skriv filnavn (Eks. Resultater.txt");
+        System.out.println(
+                "\nVil du registrere resultater fra fil? Skriv filnavn (Eks. Resultater.txt), ellers skriv 'N'");
+        svar = tastatur.readLine();
+        if (!svar.equals("N")) {
+            databehandler.lesResultatFraFil(svar, konkurranse);
+        }
+
+        System.out.println("\nVil du skrive scorekort for alle skyttere? Skriv 'Y'");
+        svar = tastatur.readLine();
+        if (svar.equals("Y")) {
+            konkurranse.skrivAlleScorekort(false);
+        }
 
     }
 }

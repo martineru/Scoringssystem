@@ -58,6 +58,9 @@ class Scorekort {
             filnavn = filnavn.replaceAll("å", "aa");
             filnavn = filnavn.replaceAll("æ", "ae");
             filnavn = filnavn.replaceAll("ø", "oe");
+            filnavn = filnavn.replaceAll("Å", "Aa");
+            filnavn = filnavn.replaceAll("Æ", "Ae");
+            filnavn = filnavn.replaceAll("Ø", "Oe");
 
             OutputStream fil = new FileOutputStream(filnavn);
             PrintWriter pw = new PrintWriter(new OutputStreamWriter(fil, "UTF-8"));
@@ -78,8 +81,8 @@ class Scorekort {
             } else {
                 for (int i = 0; i < score.size(); i++) {
                     pw.println("|" + score.keySet().toArray()[i] + "|" + score.values().toArray()[i] + "|");
-                    pw.println("| **Total**|**" + totalScore() + "**|");
                 }
+                pw.println("| **Total**|**" + totalScore() + "**|");
             }
 
             pw.close();
