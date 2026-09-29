@@ -2,10 +2,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.time.LocalDate;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 class Data {
     public ArrayList<Bueskytter> lesBueskytterinfoFraFil(String filnavn) throws IOException {
@@ -50,7 +56,9 @@ class Data {
 
                     if (info[0].trim().equals(konkurranse.deltagere.get(i).navn)) {
                         konkurranse.deltagere.get(i).registrerResultater(resultater);
-                        konkurranse.alleScorekortUtfylt.add(new Scorekort(konkurranse.deltagere.get(i), konkurranse));
+                        Scorekort scorekort = new Scorekort(konkurranse.deltagere.get(i), konkurranse);
+                        konkurranse.deltagere.get(i).registrertScorekort(scorekort);
+                        konkurranse.alleScorekortUtfylt.add(scorekort);
                     }
                 }
                 linje = filleser.readLine();
@@ -58,6 +66,24 @@ class Data {
             }
         } catch (IOException e) {
             System.err.println("Klarer ikke lese filen med navn " + filnavn);
+        }
+    }
+
+    public void skrivResultatliste(List<Map.Entry<Bueskytter, Integer>> resultater, String klasse) {
+        try {
+            String filnavn = "Resultater/Resultater " + klasse + ".md";
+            OutputStream fil = new FileOutputStream(filnavn);
+            PrintWriter pw = new PrintWriter(new OutputStreamWriter(fil, "UTF-8"));
+            pw.println("# Resultatliste " + klasse);
+
+            int i = 1;
+            for (Map.Entry<Bueskytter, Integer> entry : resultater) {
+                pw.println(i + ". " + entry.getKey().navn + ", Poengsum: " + entry.getValue());
+            }
+
+            pw.close();
+        } catch (Exception e) {
+            // TODO: handle exception
         }
     }
 }

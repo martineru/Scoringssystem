@@ -59,5 +59,14 @@ class Hovedprogram {
             konkurranse.skrivAlleScorekort(false);
         }
 
+        System.out.println("\nVil du skrive resultatliste for alle klassene? Skriv 'Y'");
+        svar = tastatur.readLine();
+        if (svar.equals("Y")) {
+            konkurranse.skrivResultatliste("Damer senior");
+            konkurranse.skrivResultatliste("Herrer senior");
+            konkurranse.skrivResultatliste("Junior");
+            konkurranse.skrivResultatliste("Minijunior");
+        }
+
     }
 }

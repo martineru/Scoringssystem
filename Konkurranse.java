@@ -2,6 +2,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Konkurranse {
     String sted;
@@ -13,12 +15,14 @@ public class Konkurranse {
     HashMap<Bueskytter, Integer> resultater;
     ArrayList<Scorekort> tommeScorekort;
     ArrayList<Scorekort> alleScorekortUtfylt;
+    Data databehandler;
 
     public Konkurranse(String sted, LocalDate dato) {
         this.sted = sted;
         this.dato = dato;
         this.deltagere = new ArrayList<>();
         this.alleScorekortUtfylt = new ArrayList<>();
+        this.databehandler = new Data();
     }
 
     /**
@@ -108,6 +112,15 @@ public class Konkurranse {
         return returResultater;
     }
 
+    public void skrivResultatliste(String klasse) {
+        Map<Bueskytter, Integer> resultater = hentResultatlisteForKlasse(klasse);
+
+        List<Map.Entry<Bueskytter, Integer>> liste = new ArrayList<>(resultater.entrySet());
+        liste.sort(Map.Entry.comparingByValue());
+        Collections.reverse(liste);
+        databehandler.skrivResultatliste(liste, klasse);
+    }
+
     public void registrerResultat(Bueskytter skytter) {
         if (this.resultater == null) {
             this.resultater = new HashMap<>();
@@ -120,7 +133,5 @@ public class Konkurranse {
             registrerResultat(skyttere.get(i));
         }
     }
-
-    // Ønsker å kunne legge inn ett eller flere resultater i klassen
 
 }

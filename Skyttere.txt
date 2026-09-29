@@ -1,20 +1,20 @@
 Ola Nordmann : 2014-03-12 : Herre : Bjørkeveien 14, 0123 Oslo
-Sofie Ås : 2015-08-27 : Kvinne : Øvre Storgate 6, 2601 Lillehammer
+Sofie Ås : 2015-08-27 : Dame : Øvre Storgate 6, 2601 Lillehammer
 Emil Ødegård : 2013-01-19 : Herre : Granliveien 22, 2317 Hamar
-Nora Håvik : 2014-11-03 : Kvinne : Åsveien 9, 7012 Trondheim
+Nora Håvik : 2014-11-03 : Dame : Åsveien 9, 7012 Trondheim
 Mikkel Sæther : 2012-06-30 : Herre : Skogstien 3, 2408 Elverum
-Linnea Rønning : 2011-04-16 : Kvinne : Fjellgata 18, 9008 Tromsø
+Linnea Rønning : 2011-04-16 : Dame : Fjellgata 18, 9008 Tromsø
 Even Bakke : 2013-09-08 : Herre : Solsiden 41, 5014 Bergen
-Thea Løken : 2012-12-21 : Kvinne : Måltrostveien 7, 1530 Moss
+Thea Løken : 2012-12-21 : Dame : Måltrostveien 7, 1530 Moss
 Jonas Myhre : 2011-02-05 : Herre : Parkveien 12, 4006 Stavanger
-Hedda Østby : 2010-07-14 : Kvinne : Furuveien 5, 2815 Gjøvik
+Hedda Østby : 2010-07-14 : Dame : Furuveien 5, 2815 Gjøvik
 Amund Næss : 2013-05-25 : Herre : Kvernveien 16, 1607 Fredrikstad
-Frida Våg : 2011-10-11 : Kvinne : Elvebakken 2, 3045 Drammen
+Frida Våg : 2011-10-11 : Dame : Elvebakken 2, 3045 Drammen
 Sander Moen : 2009-02-18 : Herre : Idrettsveien 20, 4612 Kristiansand
-Ingrid Øyen : 2008-05-09 : Kvinne : Solhaugveien 33, 8006 Bodø
+Ingrid Øyen : 2008-05-09 : Dame : Solhaugveien 33, 8006 Bodø
 Kristoffer Årvik : 2007-12-01 : Herre : Høgåsveien 8, 6004 Ålesund
-Mari Høiby : 2006-04-23 : Kvinne : Bjørkestien 11, 3611 Kongsberg
+Mari Høiby : 2006-04-23 : Dame : Bjørkestien 11, 3611 Kongsberg
 Eirik Tørresen : 1998-09-17 : Herre : Skippergata 25, 4801 Arendal
-Ragnhild Bø : 1987-01-29 : Kvinne : Knausveien 4, 5505 Haugesund
+Ragnhild Bø : 1987-01-29 : Dame : Knausveien 4, 5505 Haugesund
 Mathias Kjær : 1979-06-06 : Herre : Myrveien 19, 9510 Alta
-Åse Bråthen : 1964-11-30 : Kvinne : Kveldroveien 10, 8514 Narvik
+Åse Bråthen : 1964-11-30 : Dame : Kveldroveien 10, 8514 Narvik
